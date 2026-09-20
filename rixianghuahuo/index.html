@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="日向花火官方网站，提供日向花火详细人物档案、动画作品列表、角色设定解析及同人创作展示平台。">
+    <meta name="keywords" content="日向花火, 妖精的尾巴, 魔导士, 角色介绍, 动漫人物">
+    <title>日向花火-动漫角色深度解析与作品档案</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --bg-body: #f9f9fa;
+            --bg-card: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 5rem 1.5rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.4) 0%, transparent 20%),
+                              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.5);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* Profile Grid */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 4rem;
+        }
+
+        .profile-img-wrapper {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: #eee;
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #ccc;
+            position: relative;
+        }
+        
+        .profile-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .description {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        /* Works Grid */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .work-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .work-cover {
+            height: 200px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .work-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .work-card:hover .work-cover img {
+            transform: scale(1.05);
+        }
+
+        .work-content {
+            padding: 1.5rem;
+        }
+
+        .work-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .work-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            margin-bottom: 4rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover img {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #636e72;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .profile-grid { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>日向花火</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#profile" class="active">角色档案</a></li>
+                <li><a href="#works">登场作品</a></li>
+                <li><a href="#gallery">角色图鉴</a></li>
+                <li><a href="#about">关于本站</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>日向花火</h1>
+        <p>《妖精的尾巴》中的重要角色，纳兹与哈比的青梅竹马，拥有独特性格与成长轨迹。</p>
+        <a href="#profile" class="btn">探索角色详情</a>
+    </div>
+</section>
+
+<main class="container">
+    
+    <!-- 角色档案 -->
+    <section id="profile" class="profile-section">
+        <div class="section-title">
+            <h2>角色档案</h2>
+            <p>基本信息与角色背景解析</p>
+        </div>
+        
+        <div class="profile-grid">
+            <div class="profile-img-wrapper">
+                <!-- 使用占位符图片，实际使用时替换为日向花火官方立绘 -->
+                <img src="https://picsum.photos/seed/hinata/400/500" alt="日向花火角色立绘">
+            </div>
+            <div class="profile-info">
+                <h3>日向花火</h3>
+                <div class="tags">
+                    <span class="tag">纳兹的青梅竹马</span>
+                    <span class="tag">妖精的尾巴魔导士</span>
+                    <span class="tag">龙族混血</span>
+                </div>
+                <p class="description">
+                    日向花火是动画及漫画作品《妖精的尾巴》中的核心角色之一。她是纳兹·多拉格尼尔和哈比的青梅竹马，在故事早期便与主角团有紧密的联系。花火性格开朗、活泼，虽然有时显得有些天真，但在关键时刻展现出坚韧的一面。作为龙族混血，她拥有与生俱来的特殊能力，在后续剧情中逐渐展现出其作为魔导士的潜力与价值。
+                </p>
+                <p class="description">
+                    在剧情发展过程中，花火经历了从孩童到青少年的成长转变，与纳兹之间深厚的羁绊是推动其角色弧光的重要动力。她不仅是一个可爱的配角，更是理解龙族秘密与妖精的尾巴历史的关键人物。
+                </p>
+                <div style="margin-top: 2rem;">
+                    <strong>主要能力：</strong> 龙之魔法（具体属性随剧情发展揭示）、高机动性。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 登场作品 -->
+    <section id="works" class="works-section">
+        <div class="section-title">
+            <h2>登场作品</h2>
+            <p>日向花火出现的影视与游戏作品</p>
+        </div>
+
+        <div class="works-grid">
+            <!-- 作品 1 -->
+            <article class="work-card">
+                <div class="work-cover">
+                    <img src="https://picsum.photos/seed/fairytail/300/200" alt="妖精的尾巴封面">
+                </div>
+                <div class="work-content">
+                    <h4>妖精的尾巴</h4>
+                    <div class="work-meta">动画 / 漫画 / 2009年播出</div>
+                    <p class="work-desc">花火在该作中首次登场，作为纳兹的儿时玩伴，在多拉格尼尔村与主角团相遇，并卷入了龙之灭霸的阴谋。</p>
+                </div>
+            </article>
+
+            <!-- 作品 2 -->
+            <article class="work-card">
+                <div class="work-cover">
+                    <img src="https://picsum.photos/seed/fairytailmovie/300/200" alt="妖精的尾巴剧场版">
+                </div>
+                <div class="work-content">
+                    <h4>妖精的尾巴：龙的悲鸣</h4>
+                    <div class="work-meta">剧场版动画 / 2011年上映</div>
+                    <p class="work-desc">在剧场版中，花火与纳兹等人一同前往阿尔泰拉岛，面对强大的龙族敌人，展现了其作为魔导士的成长。</p>
+                </div>
+            </article>
+
+            <!-- 作品 3 -->
+            <article class="work-card">
+                <div class="work-cover">
+                    <img src="https://picsum.photos/seed/animemusicvideo/300/200" alt="二次创作">
+                </div>
+                <div class="work-content">
+                    <h4>同人作品与二创</h4>
+                    <div class="work-meta">社区 / 创作平台</div>
+                    <p class="work-desc">作为人气角色，日向花火在各大同人创作社区（如Pixiv、Niconico）拥有大量高质量的同人画作与动画剪辑。</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 角色图鉴 -->
+    <section id="gallery" class="gallery-section">
+        <div class="section-title">
+            <h2>角色图鉴</h2>
+            <p>精选角色形象与截图</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://picsum.photos/seed/hinata1/200/200" alt="角色截图1"></div>
+            <div class="gallery-item"><img src="https://picsum.photos/seed/hinata2/200/200" alt="角色截图2"></div>
+            <div class="gallery-item"><img src="https://picsum.photos/seed/hinata3/200/200" alt="角色截图3"></div>
+            <div class="gallery-item"><img src="https://picsum.photos/seed/hinata4/200/200" alt="角色截图4"></div>
+            <div class="gallery-item"><img src="https://picsum.photos/seed/hinata5/200/200" alt="角色截图5"></div>
+            <div class="gallery-item"><img src="https://picsum.photos/seed/hinata6/200/200" alt="角色截图6"></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="margin-bottom: 4rem;">
+        <div class="section-title">
+            <h2>常见问题</h2>
+            <p>关于日向花火的疑问解答</p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow-sm);">
+            <details style="margin-bottom: 1rem; cursor: pointer;">
+                <summary style="font-weight: 600; padding: 0.5rem 0; color: var(--primary-color);">花火和纳兹是什么关系？</summary>
+                <p style="padding: 0.5rem 0; color: var(--text-light);">他们是青梅竹马，在多拉格尼尔村一起长大，关系非常亲密。</p>
+            </details>
+            <details style="margin-bottom: 1rem; cursor: pointer;">
+                <summary style="font-weight: 600; padding: 0.5rem 0; color: var(--primary-color);">花火属于龙族吗？</summary>
+                <p style="padding: 0.5rem 0; color: var(--text-light);">是的，花火是龙族混血，这是她拥有特殊能力的原因。</p>
+            </details>
+            <details style="margin-bottom: 1rem; cursor: pointer;">
+                <summary style="font-weight: 600; padding: 0.5rem 0; color: var(--primary-color);">在哪里可以看到花火的相关内容？</summary>
+                <p style="padding: 0.5rem 0; color: var(--text-light);">可以在《妖精的尾巴》动画、漫画以及相关的剧场版中找到她。</p>
+            </details>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="#">返回首页</a>
+            <a href="#">角色列表</a>
+            <a href="#">联系我们</a>
+            <a href="#">免责声明</a>
+        </div>
+        <p class="copyright">本站为粉丝向非官方内容展示页面，所有版权属于原作作者及版权方。</p>
+    </div>
+</footer>
+
+</body>
+                      </html>
