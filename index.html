@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="猎奇动漫网提供最新最全的猎奇动漫推荐，涵盖悬疑、惊悚、心理、暗黑风格动漫作品。包括新番更新、高分榜单、隐藏神作及观影指南，满足你对未知与禁忌的探索欲望。">
+    <meta name="keywords" content="猎奇动漫,猎奇番,暗黑动漫,惊悚动漫,悬疑动漫,动漫推荐">
+    <title>猎奇动漫-禁忌视觉盛宴与高分神作探索指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0b0e;
+            --bg-card: #14151a;
+            --bg-card-hover: #1e1f26;
+            --primary: #ff3e3e;
+            --primary-dim: rgba(255, 62, 62, 0.1);
+            --text-main: #e0e0e0;
+            --text-muted: #8b9bb4;
+            --border: #2a2d35;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.75rem;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .section-title a:hover {
+            color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 11, 14, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.8rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            padding: 0.5rem 1rem;
+            color: var(--text-main);
+            outline: none;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 0 0.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 450px;
+            margin-bottom: 3rem;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+            transition: transform 10s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, var(--bg-dark), transparent);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #d93030;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            margin-left: 0.5rem;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Grid Layout */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .anime-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .anime-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            background: var(--bg-card-hover);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 140%; /* Aspect ratio */
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .anime-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .card-info {
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .rating {
+            color: #f5a623;
+        }
+
+        /* List Layout for Ranking */
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ranking-item {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: background 0.2s;
+        }
+
+        .ranking-item:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .rank-num {
+            width: 50px;
+            background: #2a2d35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-muted);
+        }
+
+        .rank-num.top-1 { color: #ffd700; }
+        .rank-num.top-2 { color: #c0c0c0; }
+        .rank-num.top-3 { color: #cd7f32; }
+
+        .rank-cover {
+            width: 120px;
+            height: 80px;
+            flex-shrink: 0;
+        }
+
+        .rank-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rank-content {
+            padding: 0.8rem 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .rank-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .rank-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Categories / Themes */
+        .categories-section {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 4rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .category-item {
+            background: var(--bg-dark);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .category-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .cat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .cat-name {
+            font-weight: 600;
+            display: block;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            margin-bottom: 4rem;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .guide-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .guide-card p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .guide-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .guide-list li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            .hero {
+                height: 350px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+            .ranking-item {
+                flex-direction: column;
+            }
+            .rank-num {
+                width: 100%;
+                padding: 0.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">猎奇<span>动漫</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">高分榜单</a></li>
+                    <li><a href="#">分类浏览</a></li>
+                    <li><a href="#">社区讨论</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索作品名称...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="https://picsum.photos/seed/cyberpunk/1600/900" alt="Featured Anime" class="hero-bg">
+            <div class="hero-content">
+                <span class="hero-tag">本周主打</span>
+                <h1>禁忌的视觉盛宴：探索未知的暗黑美学</h1>
+                <p>在这个充满悬疑与惊悚的世界里，猎奇动漫不仅是视觉的冲击，更是对人性的深刻剖析。从心理惊悚到超自然异变，我们为您精选最符合“猎奇”定义的高分作品。</p>
+                <div>
+                    <a href="#" class="btn">立即观看</a>
+                    <a href="#" class="btn btn-outline">加入片单</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories-section">
+            <div class="category-grid">
+                <div class="category-item">
+                    <span class="cat-icon">👁️</span>
+                    <span class="cat-name">心理惊悚</span>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">💀</span>
+                    <span class="cat-name">暗黑奇幻</span>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">🩸</span>
+                    <span class="cat-name">血腥暴力</span>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">👻</span>
+                    <span class="cat-name">超自然恐怖</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section>
+            <div class="section-title">
+                <h2>最新猎奇番更新</h2>
+                <a href="#">查看全部 ></a>
+            </div>
+            <div class="grid-layout">
+                <!-- Card 1 -->
+                <article class="anime-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/horror1/300/420" alt="Anime Cover">
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">深渊凝视</h3>
+                        <div class="card-meta">
+                            <span>更新至第12集</span>
+                            <span class="rating">9.2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="anime-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/horror2/300/420" alt="Anime Cover">
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">血色回廊</h3>
+                        <div class="card-meta">
+                            <span>更新至第05集</span>
+                            <span class="rating">8.8</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="anime-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/horror3/300/420" alt="Anime Cover">
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">寄生觉醒</h3>
+                        <div class="card-meta">
+                            <span>连载中</span>
+                            <span class="rating">9.0</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="anime-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/horror4/300/420" alt="Anime Cover">
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">无声尖叫</h3>
+                        <div class="card-meta">
+                            <span>更新至第08集</span>
+                            <span class="rating">8.5</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="anime-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/horror5/300/420" alt="Anime Cover">
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">记忆崩坏</h3>
+                        <div class="card-meta">
+                            <span>完结</span>
+                            <span class="rating">9.5</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="anime-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/horror6/300/420" alt="Anime Cover">
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">扭曲乐园</h3>
+                        <div class="card-meta">
+                            <span>更新至第03集</span>
+                            <span class="rating">8.3</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Top Ranking List -->
+        <section>
+            <div class="section-title">
+                <h2>猎奇神作排行榜</h2>
+                <a href="#">查看榜单 ></a>
+            </div>
+            <div class="ranking-list">
+                <!-- Rank 1 -->
+                <div class="ranking-item">
+                    <div class="rank-num top-1">1</div>
+                    <div class="rank-cover">
+                        <img src="https://picsum.photos/seed/rank1/200/133" alt="Cover">
+                    </div>
+                    <div class="rank-content">
+                        <h3 class="rank-title">东京食尸鬼 - Re: (东京食尸鬼)</h3>
+                        <p class="rank-desc">经典暗黑美学的巅峰之作，探索人类与怪物之间的界限，剧情跌宕起伏，画风极具冲击力。</p>
+                    </div>
+                </div>
+
+                <!-- Rank 2 -->
+                <div class="ranking-item">
+                    <div class="rank-num top-2">2</div>
+                    <div class="rank-cover">
+                        <img src="https://picsum.photos/seed/rank2/200/133" alt="Cover">
+                    </div>
+                    <div class="rank-content">
+                        <h3 class="rank-title">进击的巨人 (进击的巨人)</h3>
+                        <p class="rank-desc">宏大的世界观设定，充满血腥与战争，深刻探讨自由、仇恨与人性救赎的史诗巨作。</p>
+                    </div>
+                </div>
+
+                <!-- Rank 3 -->
+                <div class="ranking-item">
+                    <div class="rank-num top-3">3</div>
+                    <div class="rank-cover">
+                        <img src="https://picsum.photos/seed/rank3/200/133" alt="Cover">
+                    </div>
+                    <div class="rank-content">
+                        <h3 class="rank-title">寄生兽</h3>
+                        <p class="rank-desc">对生命本质的哲学思考，带有轻微猎奇色彩的科幻惊悚片，探讨人类在自然界的位置。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide / Information Section -->
+        <section class="guide-section">
+            <div class="section-title">
+                <h2>猎奇动漫观影指南</h2>
+            </div>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <h3>什么是猎奇动漫？</h3>
+                    <p>猎奇动漫通常指包含血腥、恐怖、怪诞或令人不适的视觉元素，但往往通过深刻的剧情或独特的艺术风格来承载主题的作品。它们不仅仅是吓人，更侧重于心理层面的压迫感。</p>
+                    <ul class="guide-list">
+                        <li>包含大量血浆或怪异生物设计</li>
+                        <li>剧情往往涉及伦理、道德的灰色地带</li>
+                        <li>适合寻求刺激和深度思考的观众</li>
+                    </ul>
+                </div>
+                <div class="guide-card">
+                    <h3>如何选择适合自己的作品？</h3>
+                    <p>面对众多的暗黑作品，建议从评分和类型入手。初学者可尝试心理惊悚类，再逐步接触更极端的血腥或超自然题材。</p>
+                    <ul class="guide-list">
+                        <li>新手推荐：心理悬疑、微恐</li>
+                        <li>进阶推荐：血腥暴力、赛博朋克</li>
+                        <li>避雷提示：部分作品含有极度不适画面，请根据个人承受力观看</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col" style="flex: 2; min-width: 250px;">
+                    <div class="logo">猎奇<span>动漫</span></div>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.9rem;">
+                        致力于为动漫爱好者提供最纯粹的暗黑视觉体验。我们精选全球范围内的优秀猎奇、惊悚及悬疑类动漫作品。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>浏览分类</h4>
+                    <ul>
+                        <li><a href="#">动作</a></li>
+                        <li><a href="#">恐怖</a></li>
+                        <li><a href="#">科幻</a></li>
+                        <li><a href="#">剧情</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">播放故障</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系站长</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 猎奇动漫网. All Rights Reserved. 本站内容仅供学习交流，请于观看后24小时内删除。
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
